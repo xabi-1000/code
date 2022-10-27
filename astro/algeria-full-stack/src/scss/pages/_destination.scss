@@ -1,0 +1,229 @@
+@use '../mixins' as *;
+
+@include bg-image(home);
+@include bg-image(crew);
+@include bg-image(destination);
+@include bg-image(technology);
+
+$whiteSmoke: hsla(231, 79%, 90%, 1);
+$white: hsla(0, 0%, 100%, 1);
+$paddingTopNavBar: 91px;
+
+@font-face {
+	font-family: 'Barlow';
+
+	src: url('/fonts/Barlow.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'BarlowCondensed';
+
+	src: url('/fonts/BarlowCondensed.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Bellefair';
+
+	src: url('/fonts/Bellefair.woff') format('woff');
+}
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+body,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin: 0;
+	font-family: Barlow;
+}
+html,
+body {
+	margin: 0;
+	// min-height: 100vh;
+	// width: 100vw;
+	color: $white;
+	scroll-behavior: smooth;
+	overflow: hidden;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+img {
+	max-width: 100%;
+	display: block;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.container {
+	@include flex(column-reverse, space-around, center);
+	width: 100vw;
+	height: 100vh;
+	padding-top: $paddingTopNavBar;
+	scroll-behavior: smooth;
+	@include media(tablet) {
+		@include flex(column-reverse, space-around, center);
+	}
+	@include media(desktop) {
+		@include flex(row-reverse, space-around, center);
+	}
+}
+
+.info,
+.illustration {
+	width: 100%;
+
+	@include media(desktop) {
+		width: 50%;
+		height: 100%;
+	}
+}
+
+.info {
+	@include flex(column, center, center, 2rem);
+
+	@include media(tablet) {
+		@include flex(column, start, center, 2rem);
+		gap: 1rem;
+	}
+	@include media(desktop) {
+		@include flex(column, center, start, 2rem);
+		padding-left: 5rem;
+	}
+
+	&--slider {
+		width: 237px;
+		height: 28px;
+
+		@include media(tablet) {
+			width: 287px;
+			height: 35px;
+		}
+
+		& .menu {
+			@include flex(row, space-between, center, 1rem);
+		}
+	}
+
+	&--title {
+		font-family: Bellefair;
+		font-size: 56px;
+		text-align: center;
+		color: $white;
+		font-weight: 400;
+		@include media(tablet) {
+			font: size 151px;
+		}
+
+		@include media(tablet) {
+			font-size: 80px;
+		}
+		@include media(desktop) {
+			font-size: 100px;
+		}
+	}
+
+	&--text {
+		font-family: Barlow;
+		text-align: center;
+		font-size: 15px;
+		width: 327px;
+		line-height: 25px;
+		color: $whiteSmoke;
+		@include media(tablet) {
+			font-size: 17px;
+			width: 573px;
+			line-height: 29px;
+		}
+
+		@include media(desktop) {
+			font-size: 19px;
+			width: 445px;
+			line-height: 33px;
+			text-align: start;
+		}
+	}
+
+	&--detailed {
+		@include flex(row, center, center, 2rem);
+
+		@include media(tablet) {
+			@include flex(row, center, center, 7rem);
+			padding-top: 5rem;
+		}
+		@include media(desktop) {
+			@include flex(row, center, center, 4rem);
+		}
+
+		& .distance,
+		& .time {
+			@include flex(column, center, center, 1rem);
+
+			@include media(desktop) {
+				@include flex(column, center, start, 1rem);
+			}
+
+			& span {
+				font-family: BarlowCondensed;
+				font-size: 14px;
+				font-weight: 400;
+				line-height: 17px;
+				letter-spacing: 2.35px;
+				color: $whiteSmoke;
+			}
+
+			& p {
+				font-family: Bellefair;
+				font-size: 28px;
+				font-weight: 400;
+				line-height: 32px;
+				letter-spacing: 0px;
+				text-transform: uppercase;
+			}
+		}
+	}
+}
+
+.illustration {
+	@include flex(column, center, center);
+
+	@include media(tablet) {
+		padding-top: 3rem;
+	}
+
+	@include media(desktop) {
+		@include flex(column, center, center);
+		width: 50vw;
+	}
+
+	&--image {
+		width: 171px;
+		height: auto;
+
+		@include media(tablet) {
+			width: 301px;
+			height: auto;
+		}
+
+		@include media(desktop) {
+			width: 445px;
+			height: auto;
+		}
+	}
+}

@@ -1,0 +1,248 @@
+@use '../mixins' as *;
+
+@include bg-image(home);
+@include bg-image(crew);
+@include bg-image(destination);
+@include bg-image(technology);
+
+$whiteSmoke: hsla(231, 79%, 90%, 1);
+$white: hsla(0, 0%, 100%, 1);
+$paddingTopNavBar: 91px;
+
+@font-face {
+	font-family: 'Barlow';
+
+	src: url('/fonts/Barlow.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'BarlowCondensed';
+
+	src: url('/fonts/BarlowCondensed.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Bellefair';
+
+	src: url('/fonts/Bellefair.woff') format('woff');
+}
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+body,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin: 0;
+	font-family: Barlow;
+}
+html,
+body {
+	margin: 0;
+	// min-height: 100vh;
+	// width: 100vw;
+	color: $white;
+	scroll-behavior: smooth;
+	overflow: hidden;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+img {
+	max-width: 100%;
+	display: block;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.container {
+	@include flex(column-reverse, space-around, center);
+	width: 100vw;
+	height: 100vh;
+	padding-top: $paddingTopNavBar;
+	scroll-behavior: smooth;
+
+	@include media(tablet) {
+		@include flex(column, space-around, center);
+	}
+	@include media(desktop) {
+		@include flex(row, space-around, center);
+	}
+}
+
+.info,
+.illustration {
+	width: 100%;
+	height: 50%;
+
+	@include media(desktop) {
+		width: 50%;
+		height: 100%;
+	}
+}
+
+.info {
+	@include flex(column, center, center, 1rem);
+	@include media(tablet) {
+		gap: 1rem;
+	}
+	@include media(desktop) {
+		@include flex(column-reverse, center, start, 2rem);
+		padding-left: 5rem;
+	}
+
+	&--describtion > * {
+		text-align: center;
+		padding: 0 2em;
+		margin-bottom: 2.1rem;
+		@include media(desktop) {
+			padding: 0;
+		}
+	}
+
+	&--slider {
+		@include flex(row, center, center);
+
+		@include media(desktop) {
+		}
+
+		& .menu {
+			@include flex(row, space-around, center, 1rem);
+			width: 100%;
+
+			@include media(desktop) {
+			}
+
+			&--link {
+				@include flex(row, center, center, 3rem);
+			}
+
+			&--item {
+			}
+
+			& .circle {
+				width: 3em;
+				height: 3em;
+				border-radius: 50%;
+				background-color: hsla(0, 0%, 100%, 0.5);
+			}
+		}
+	}
+
+	&--role {
+		font-family: Bellefair;
+		font-size: 1.1em;
+		font-weight: 400;
+		letter-spacing: 0px;
+		color: hsla(0, 0%, 100%, 0.5);
+
+		@include media(tablet) {
+			font-size: 1.3em;
+		}
+		@include media(desktop) {
+			font-size: 1.7em;
+		}
+	}
+
+	&--title {
+		font-family: Bellefair;
+		font-size: 1.3em;
+		color: $white;
+		font-weight: 400;
+		color: #ffffff;
+		text-transform: uppercase;
+
+		@include media(tablet) {
+			font-size: 1.7em;
+		}
+		@include media(desktop) {
+			font-size: 2.5em;
+		}
+	}
+
+	&--text {
+		font-family: Barlow;
+		text-align: center;
+		font-size: 1em;
+		color: $whiteSmoke;
+
+		@include media(tablet) {
+			font-size: 1.5em;
+		}
+		@include media(desktop) {
+			font-size: 2em;
+			text-align: start;
+		}
+	}
+
+	&--detailed {
+		@include flex(column, center, center, 2rem);
+
+		@include media(tablet) {
+		}
+		@include media(desktop) {
+			@include flex(row, center, center, 4rem);
+		}
+
+		& .distance,
+		& .time {
+			@include flex(column, center, center, 1rem);
+
+			@include media(desktop) {
+				@include flex(column, center, start, 1rem);
+			}
+
+			& span {
+				font-family: BarlowCondensed;
+				font-size: 14px;
+				font-weight: 400;
+				letter-spacing: 2.35px;
+				color: $whiteSmoke;
+			}
+
+			& p {
+				font-family: Bellefair;
+				font-size: 28px;
+				font-weight: 400;
+				letter-spacing: 0px;
+				text-transform: uppercase;
+			}
+		}
+	}
+}
+
+.illustration {
+	@include flex(column, end, center);
+
+	@include media(desktop) {
+		@include flex(column, end, center);
+	}
+
+	&--image {
+		width: 171px;
+
+		@include media(tablet) {
+			width: 301px;
+		}
+
+		@include media(desktop) {
+			width: 27vw;
+		}
+	}
+}

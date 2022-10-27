@@ -1,0 +1,93 @@
+@use '../mixins' as *;
+
+$whiteSmoke: hsla(231, 79%, 90%, 1);
+$white: hsla(0, 0%, 100%, 1);
+
+.container {
+	@include flex(column, space-around, center);
+	height: 100vh;
+	padding: 91px 0 0 0;
+	@include media(desktop) {
+		@include flex(row, space-around, center);
+	}
+}
+
+.section {
+	@include media(desktop) {
+		@include flex(row, center, center);
+	}
+}
+
+.discribtion {
+	@include flex(column, center, center, 2rem);
+	// width: 327px;
+	// height: 275px;
+	@include media(tablet) {
+		gap: 1rem;
+		// width: 450px;
+		// height: 334px;
+	}
+	@include media(desktop) {
+		@include flex(column, center, start, 2rem);
+		// width: 450px;
+		// height: 382px;
+	}
+
+	&--title {
+		font-family: Bellefair;
+		font-size: 3rem;
+		font-weight: 400;
+		text-align: center;
+		color: $white;
+		@include media(tablet) {
+			// font-size: 4rem;
+		}
+		@include media(desktop) {
+			// font-size: 5rem;
+		}
+	}
+	&--text {
+		font-family: Barlow;
+		text-align: center;
+		font-size: 15px;
+		width: 327px;
+		line-height: 25px;
+		color: $whiteSmoke;
+		@include media(tablet) {
+			font-size: 17px;
+			width: 443px;
+			line-height: 29px;
+		}
+		@include media(desktop) {
+			font-size: 19px;
+			width: 443px;
+			line-height: 33px;
+			text-align: start;
+		}
+	}
+}
+
+.btn-explore {
+	width: 151px;
+	height: 151px;
+	display: grid;
+	place-items: center;
+	border-radius: 50%;
+	font-size: 21px;
+	font-family: Bellefaire;
+	letter-spacing: 2px;
+	color: hsla(230, 35%, 7%, 1);
+	background-color: $white;
+
+	@include media(tablet) {
+		font-size: 31px;
+		width: 243px;
+		height: 243px;
+	}
+
+	@include media(desktop) {
+		font-size: 33px;
+		width: 275px;
+		height: 275px;
+	}
+}
